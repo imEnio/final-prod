@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: auto;
+}
+
+.auth-form {
+    width: 450px;
+    height: 311px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    animation: auth-form 2s;
+}
+
+@keyframes auth-form {
+    0% {
+        transform: translate(0, 100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+
+.logo {
+    font-size: 35px;
+    font-family: FreeMono, monospace;
+    font-stretch: condensed;
+}
+
+.auth-content {
+    --x: 50%;
+    --y: 50%;
+
+    background: #e5e7eb;
+    height: 270px;
+    border: 2px solid transparent;
+    background: linear-gradient(#ececec, #ececec) padding-box,
+    radial-gradient(farthest-corner at var(--x) var(--y), #00C9A7, #845EC2) border-box;
+    padding: 15px;
+    margin: -10px 0 0 0;
+    transition-duration: .3s;
+    z-index: 2;
+}
+
+.log-in-box {
+    margin: 20px 0 40px 0;
+}
+
+.log-in {
+    font-size: 20px;
+    font-family: FreeMono, monospace;
+    font-stretch: condensed;
+}
+
+.form-group {
+    margin: 15px 0 0 0;
+}
+
+.form-style {
+    width: 416px;
+    padding: 0 25px;
+}
+
+.user-icon:before {
+    content: '\f406';
+    font-family: 'Font Awesome 5 Free', sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    position: absolute;
+    top: 156px;
+    left: 25px;
+    height: 48px;
+}
+
+.password-icon:before {
+    content: '\f023';
+    font-family: 'Font Awesome 5 Free', sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    position: absolute;
+    top: 198px;
+    left: 25px;
+    height: 48px;
+}
+
+.remember-reset {
+    margin: 15px 0 0 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.rr-text {
+    font-size: 14px;
+}
+
+.submit {
+    margin: 10px 0 0 0;
+    padding: 0 4px;
+    width: 140px;
+}
+
+.password-alert {
+    color: red;
+    font-weight: bold;
+}
+
