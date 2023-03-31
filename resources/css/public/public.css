@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Garamond, serif;
+}
+
+.wrapper {
+
+}
+
+.header {
+    height: 50px;
+    width: auto;
+    background: #1a202c;
+    box-shadow: 5px 0 0 white;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+.header-logo {
+    height: 50px;
+    padding: 0.5em 0 0 20px;
+    font-size: 20px;
+    color: white;
+    margin: 0 40px 0 0;
+}
+
+.header-nav {
+    height: 50px;
+    padding: 0.8em 0;
+    white-space: nowrap;
+}
+
+.header-btn {
+    width: 60px;
+    height: 26px;
+    background: transparent;
+    border-radius: 50px;
+    border: rgba(255, 255, 255, 0.6) 2px solid;
+    color: white;
+    margin: 0 2px;
+}
+
+.currency:before {
+    content: 'RUB \f158';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 14px;
+}
+
+.language:before {
+    content: 'RUS \f0ac';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 14px;
+}
+
+.header-search {
+    height: 50px;
+    padding: 0.5em 0 0 20px;
+    margin-left: auto;
+}
+
+input[type=search] {
+    width: 160px;
+    padding: 2px 20px 2px 45px;
+    border: white solid 2px;
+    font-size: 18px;
+    border-radius: 25px;
+    background-position: 2% 50%;
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-image: url("../../image/svg/search-white.svg");
+    background-color: transparent;
+    transition: 0.5s all ease-in-out;
+    filter: brightness(170%);
+}
+
+input[type=search]:focus,
+input[type=search]:not(:placeholder-shown) {
+    width: 350px;
+    background-color: white;
+    background-image: url("../../image/svg/search-dark.svg");
+    filter: brightness(100%);
+}
+
+.header-auth {
+    padding: 0.8em 0;
+}
+
+.auth-btn {
+    width: 100px;
+    height: 30px;
+    margin: 0 20px 0 0;
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 18px;
+}
+
+.auth:before {
+    content: '\f007';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 18px;
+}
+
+.logout:before {
+    content: '\f2f5';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 18px;
+}
+
+.nav-bar {
+    height: 35px;
+    background-color: dimgray;
+    color: white;
+    font-size: 18px;
+}
+
+.nav-content{
+    padding: 4px 20px;
+}
+.nav-btn{
+    margin-right: 10px;
+}
+
+.city:before{
+    content: '\f1ad';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 400;
+}
+
+.parks:before{
+    content: '\f557';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}

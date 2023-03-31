@@ -6,14 +6,13 @@ $(document).ready(function (){
         e.target.style.setProperty('--x', `${ x }px`)
         e.target.style.setProperty('--y', `${ y }px`)
     })
-
     $("#submit").on("click", function () {
         let login = $("#login").val()
         let password = $("#password").val()
         let remember = $("#remember").prop("checked")
         $.ajax({
             type: "post",
-            url: "/admin/login",
+            url: "/login",
             data: {
                 login: login,
                 password: password,

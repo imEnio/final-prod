@@ -7,13 +7,17 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"/>
 
-    @vite('resources/css/admin/auth/admin-auth.css')
     @vite('resources/sass/app.scss')
+    @vite('resources/css/public/public-auth.css')
 
     @vite('resources/js/app.js')
-    @vite('resources/js/admin/auth/auth.js')
+    @vite('resources/js/public/public.js')
+
+    @section('assets')
+
+    @show
 </head>
 <body>
-{{$slot}}
+@yield('content')
 </body>
 </html>

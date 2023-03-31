@@ -16,11 +16,11 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
          \App\Models\User::factory()->create([
-             'login' => 'Test',
-             'password' => Hash::make('123456'),
-             'name' => 'Тест',
-             'email' => 'test@test.test',
-             'role' => '1',
+             'login' => 'Banshee',
+             'password' => Hash::make('banshee275933'),
+             'name' => 'Пользователь',
+             'email' => 'denissankov171@yandex.ru',
+             'role' => '2',
          ]);
     }
 }
