@@ -48,4 +48,25 @@ $(document).ready(function () {
             localStorage.setItem('theme', 'light')
         }
     })
+
+    $("#send-msg").on("click", function () {
+        let message = $("#message").val()
+        $.ajax({
+            type: "post",
+            url: "/admin/send-message",
+            data: {
+                message: message,
+            },
+            success: function (response) {
+                // $(".message-box").html(message)
+            },
+            error: function (response) {
+
+            }
+        })
+    })
+    Echo.channel('chat').listen('.send.message', (e) => {
+        console.log(e);
+        $(".message-box").html(e.message)
+    });
 })

@@ -3,8 +3,7 @@
     @vite('resources/css/admin/pages/profile.css')
     @vite('resources/js/admin/profile.js')
 @endsection
-{{--TODO ограничение на загрузку картинок (какой тип файла, размер)--}}
-@section('login', $profile->login)
+@section('login')
 @section('content')
     <div class="content">
         <div class="left-section">

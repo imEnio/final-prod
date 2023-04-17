@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\UserEmailHash;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -16,7 +17,7 @@ class RecoveryMsg extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(public UserEmailHash $userEmailHash)
     {
         //
     }
@@ -38,6 +39,10 @@ class RecoveryMsg extends Mailable
     {
         return new Content(
             view: 'public.auth.recovery-msg',
+            with: [
+                'hash' => $this->userEmailHash->hash_reset,
+                'login' => $this->userEmailHash->user? $this->userEmailHash->user->login:'пользователь',
+            ],
         );
     }
 

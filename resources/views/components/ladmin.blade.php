@@ -36,13 +36,13 @@
                 </div>
                 <span class="nav-text">Пользователи</span>
             </a>
-            <a href="" class="menu">
+            <a href="{{route("cities")}}" class="menu">
                 <div class="icons">
                     <span class="m-cities-ic"></span>
                 </div>
                 <span class="nav-text">Города</span>
             </a>
-            <a href="" class="menu">
+            <a href="{{route("parks")}}" class="menu">
                 <div class="icons">
                     <span class="m-parks-ic"></span>
                 </div>
@@ -105,7 +105,17 @@
         <div class="content-wrapper">
             @yield('content')
             <div class="right-menu">
-
+                <div class="chat-box">
+{{--                    <div class="message-box"></div>--}}
+{{--                    <div class="message-box"></div>--}}
+{{--                    <div class="message-box"></div>--}}
+{{--                    <div class="message-box"></div>--}}
+                    <div class="message-box"></div>
+                    <form action="">
+                        <input name="message" id="message" type="text" class="message-form" placeholder="Сообщение...">
+                        <input class="submit" name="enter" type="button" value="Отправить" id="send-msg"/>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

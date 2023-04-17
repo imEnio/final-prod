@@ -79,4 +79,36 @@ $(document).ready(function (){
             }
         })
     })
+
+    $("#reset_password").on("click", function () {
+        let password = $("#password").val()
+        let confirm_password = $("#confirm_password").val()
+        let hash = $("#hash").val()
+        $.ajax({
+            type: "post",
+            url: "/reset-password",
+            data: {
+                password: password,
+                password_confirmation: confirm_password,
+                hash: hash,
+            },
+            success: function (response) {
+                window.location.href = '/login'
+            },
+            error: function (response) {
+                $(".alert").text(response.responseJSON.message)
+
+                $('.auth-content').css({"height": "300px"});
+
+                let alertAnim = $('.password-alert');
+                let animation = alertAnim.animate([
+                    { opacity: 0 },
+                    { opacity: 1 }
+                ], 1000);
+                animation.addEventListener('finish', function (){
+                    alertAnim.style.transform = 'opacity: 1';
+                });
+            }
+        })
+    })
 })

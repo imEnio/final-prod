@@ -5,6 +5,9 @@
 @section('content')
     <div class="content">
         <div class="form">
+            <div class="change-form">>
+                <span class="switch-form sing-in active">Сброс пароля</span>
+            </div>
             <div class="form-group">
                 <label for="">E-mail</label>
                 <input type="text" name="email" id="email" class="data-input">
