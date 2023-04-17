@@ -56,3 +56,6 @@ window.Echo = new Echo({
     cluster: 'mt1',
     forceTLS: true
 });
+
+import toastr from "toastr"
+window.toastr = toastr

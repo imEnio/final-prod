@@ -45,23 +45,7 @@ class AuthController extends Controller
         return redirect()->intended();
     }
 
-    public function registration(Request $request)
-    {
-        $validated = Validator::make($request->all(), [
-            'login' => 'required|unique:users',
-            'password' => 'required|confirmed',
-        ]);
-        if ($validated->fails()) {
-            throw new Exception($validated->errors()->first(), 402);
-        }
-        $user = new User();
-        $user->login = $request->get('login');
-        $user->password = Hash::make($request->get('password'));
-        $user->role = User::ROLE_USER;
-        $user->save();
-        auth()->login($user);
-        return 'ok';
-    }
+
 
     public function recovery(Request $request)
     {

@@ -1,4 +1,4 @@
-$(document).ready(function (){
+$(document).ready(function () {
     $("#submit").on("click", function () {
         let login = $("#login").val()
         let password = $("#password").val()
@@ -21,10 +21,10 @@ $(document).ready(function (){
 
                 let alertAnim = $('.password-alert');
                 let animation = alertAnim.animate([
-                    { opacity: 0 },
-                    { opacity: 1 }
+                    {opacity: 0},
+                    {opacity: 1}
                 ], 1000);
-                animation.addEventListener('finish', function (){
+                animation.addEventListener('finish', function () {
                     alertAnim.style.transform = 'opacity: 1';
                 });
             }
@@ -47,18 +47,8 @@ $(document).ready(function (){
                 window.location.href = '/'
             },
             error: function (response) {
-                $(".alert").text(response.responseJSON.message)
-
-                $('.auth-content').css({"height": "300px"});
-
-                let alertAnim = $('.password-alert');
-                let animation = alertAnim.animate([
-                    { opacity: 0 },
-                    { opacity: 1 }
-                ], 1000);
-                animation.addEventListener('finish', function (){
-                    alertAnim.style.transform = 'opacity: 1';
-                });
+                toastr.options.progressBar = true
+                toastr.error(response.responseJSON.error)
             }
         })
     })
@@ -72,10 +62,10 @@ $(document).ready(function (){
                 email: email,
             },
             success: function (response) {
-               alert('Письмо отправлено!')
+                alert('Письмо отправлено!')
             },
             error: function (response) {
-               console.log(response)
+                console.log(response)
             }
         })
     })
@@ -102,10 +92,10 @@ $(document).ready(function (){
 
                 let alertAnim = $('.password-alert');
                 let animation = alertAnim.animate([
-                    { opacity: 0 },
-                    { opacity: 1 }
+                    {opacity: 0},
+                    {opacity: 1}
                 ], 1000);
-                animation.addEventListener('finish', function (){
+                animation.addEventListener('finish', function () {
                     alertAnim.style.transform = 'opacity: 1';
                 });
             }

@@ -29,7 +29,7 @@ Route::post('/admin/login', [\App\Http\Controllers\admin\AuthController::class, 
 Route::get('/registration', function (){
     return view('public.auth.registration');
 });
-Route::post('/registration', [\App\Http\Controllers\admin\AuthController::class, 'registration']);
+Route::post('/registration', [\App\Http\Controllers\admin\API\AuthController::class, 'registration']);
 
 Route::get('/login', function (){
     return view("public.auth.auth");
