@@ -1,4 +1,4 @@
-@extends('components.lauthpublic')
+@extends('components.backup.lauthpublic')
 @section('assets')
     @vite('')
 @endsection

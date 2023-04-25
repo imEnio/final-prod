@@ -1,4 +1,4 @@
-@extends('components.lpublic')
+@extends('components.backup.lpublic')
 @section('assets')
     @vite('')
 @endsection

@@ -1,4 +1,14 @@
+.chat-clear {
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 210px;
+    height: 50px;
+    display: flex;
+    border-radius: 20px 0 0;
+}
 
+.chat-clear-btn {
+    margin: auto;
+}
 
 @media screen and (min-width: 1600px) {
 

@@ -1,4 +1,4 @@
-@extends('components.ladmin')
+@extends('components.backup.ladmin')
 @section('assets')
     @vite('resources/css/admin/pages/users.css')
 @endsection
@@ -32,8 +32,8 @@
                         <span class="table-circle-image role"
                               @switch($user->role)
                                   @case(1) style="border-color: #ffffff"
-                                  @case(2) style="border-color: #0003ff"
-                                  @case(3) style="border-color: #ff5454"
+                              @case(2) style="border-color: #0003ff"
+                              @case(3) style="border-color: #ff5454"
                               @endswitch>
                             <img
                                 src="@if($user->avatar) {{url('storage/' .$user->avatar)}} @else /assets/debug/img/testava.png @endif"

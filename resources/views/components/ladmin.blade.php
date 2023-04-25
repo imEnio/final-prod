@@ -80,7 +80,8 @@
                     <a href="{{route('profile')}}">
                         <div class="profile">
                             <div class="data">
-                                <span class="name">{{\Illuminate\Support\Facades\Auth::user()->name}} {{\Illuminate\Support\Facades\Auth::user()->surname}}</span>
+                                <span
+                                    class="name">{{\Illuminate\Support\Facades\Auth::user()->name}} {{\Illuminate\Support\Facades\Auth::user()->surname}}</span>
                                 <span class="login">
                                     @switch(\Illuminate\Support\Facades\Auth::user()->role)
                                         @case(2)
@@ -103,19 +104,31 @@
             </div>
         </div>
         <div class="content-wrapper">
-            @yield('content')
+            {{$content}}
             <div class="right-menu">
                 <div class="chat-box">
-{{--                    <div class="message-box"></div>--}}
-{{--                    <div class="message-box"></div>--}}
-{{--                    <div class="message-box"></div>--}}
-{{--                    <div class="message-box"></div>--}}
-                    <div class="message-box"></div>
-                    <form action="">
+                    <div class="msg-box">
+                        @foreach($msg as $text)
+
+                            <div class="msg-text-box">
+                                <span class="circle-image chat-avatar">
+                                    <img
+                                        src="@if($text->user->avatar) {{url('storage/' .$text->user->avatar)}} @else /assets/debug/img/testava.png @endif"
+                                        alt="404 Not Found" class="avatar-img">
+                                </span>
+                                <div class="msg-text-block">
+                                    <span class="msg-from">От: {{$text->user->name}}</span>
+                                    <span class="msg-text">{{$text->message}}</span>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                    <form>
                         <input name="message" id="message" type="text" class="message-form" placeholder="Сообщение...">
-                        <input class="submit" name="enter" type="button" value="Отправить" id="send-msg"/>
+                        <input class="send-msg" name="enter" type="button" value="Отправить" id="send-msg"/>
                     </form>
                 </div>
+
             </div>
         </div>
     </div>

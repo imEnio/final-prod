@@ -1,4 +1,4 @@
-@extends('components.lauthpublic')
+@extends('components.backup.lauthpublic')
 @section('assets')
     @vite('')
 @endsection
@@ -19,7 +19,8 @@
                 <label for="">Пароль</label>
                 <input name="password" id="password" type="password" class="data-input" placeholder="пароль">
                 <label for="">Подтверждение пароля</label>
-                <input name="confirm_password" id="confirm_password" type="password" class="data-input" placeholder="подтвердите пароль">
+                <input name="confirm_password" id="confirm_password" type="password" class="data-input"
+                       placeholder="подтвердите пароль">
 
                 <input class="submit" name="enter" type="button" value="Зарегистрироваться" id="registration_btn"/>
             </div>

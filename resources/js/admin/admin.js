@@ -8,22 +8,23 @@ $(document).ready(function () {
     function date_time() {
         let today = new Date()
         let date = today.getDate()
-        let month = today.getMonth()+1
+        let month = today.getMonth() + 1
         let hours = today.getHours()
         let minutes = today.getMinutes()
         let seconds = today.getSeconds()
 
         let day = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб']
 
-        if(month <= 9) month = "0" + month
+        if (month <= 9) month = "0" + month
 
-        if(hours <= 9) hours = "0" + hours
-        if(minutes <= 9) minutes = "0" + minutes
-        if(seconds <= 9) seconds = "0" + seconds
+        if (hours <= 9) hours = "0" + hours
+        if (minutes <= 9) minutes = "0" + minutes
+        if (seconds <= 9) seconds = "0" + seconds
 
-        $('#today').html(day[today.getDay()]+ " " +date+"."+month+"."+today.getFullYear()+ " " +hours+ ":" +minutes+":"+seconds)
+        $('#today').html(day[today.getDay()] + " " + date + "." + month + "." + today.getFullYear() + " " + hours + ":" + minutes + ":" + seconds)
     }
-    setInterval(date_time,1000);
+
+    setInterval(date_time, 1000);
 
     $('.db-Table').DataTable({
         scrollX: true,
@@ -58,7 +59,9 @@ $(document).ready(function () {
                 message: message,
             },
             success: function (response) {
-                // $(".message-box").html(message)
+                // $(".msg-box").html(message)
+                var span = $('<span>')
+                $(".msg-box").append(span);
             },
             error: function (response) {
 
@@ -66,7 +69,7 @@ $(document).ready(function () {
         })
     })
     Echo.channel('chat').listen('.send.message', (e) => {
-        console.log(e);
-        $(".message-box").html(e.message)
+        $(".msg-box").html(e.message)
     });
+    $(".msg-box").scrollTop(4000);
 })

@@ -2,11 +2,13 @@
 
 namespace App\View\Components;
 
+use App\Models\Message;
+use App\Models\User;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class DashboardLayoute extends Component
+class ladmin extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +23,10 @@ class DashboardLayoute extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.dashboard-layoute');
+
+        $msg = Message::with('user')->get();
+        $user = User::all();
+
+        return view('components.ladmin', ['msg' => $msg, 'user' => $user]);
     }
 }
