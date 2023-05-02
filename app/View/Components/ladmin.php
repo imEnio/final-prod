@@ -21,12 +21,10 @@ class ladmin extends Component
     /**
      * Get the view / contents that represent the component.
      */
-    public function render(): View|Closure|string
+    public function render($page=1): View|Closure|string
     {
+        $msg = Message::with('user')->limit(20)->offset(($page-1)*20)->latest()->get();
 
-        $msg = Message::with('user')->get();
-        $user = User::all();
-
-        return view('components.ladmin', ['msg' => $msg, 'user' => $user]);
+        return view('components.ladmin', ['msg' => $msg]);
     }
 }

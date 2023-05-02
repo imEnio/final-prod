@@ -378,6 +378,10 @@ tr:nth-child(2n) {
     min-width: 40px;
 }
 
+.my-message{
+    background-color: #702731;
+}
+
 @media screen and (min-width: 1600px) {
     .logo:before {
         content: 'POCKETWORLD';

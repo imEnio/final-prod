@@ -1,16 +1,15 @@
-@extends('components.backup.ladmin')
 @section('assets')
     @vite('resources/css/admin/pages/profile.css')
     @vite('resources/js/admin/profile.js')
 @endsection
-@section('login')
-    @section('content')
+<x-ladmin>
+    <x-slot name="content">
         <div class="content">
             <div class="left-section">
             <span class="content-circle-image">
                 <img
-                        src="@if($profile->avatar) {{url('storage/' .$profile->avatar)}} @else /assets/debug/img/testava.png @endif"
-                        alt="404 Not Found" class="avatar-img">
+                    src="@if($profile->avatar) {{url('storage/' .$profile->avatar)}} @else /assets/debug/img/testava.png @endif"
+                    alt="404 Not Found" class="avatar-img">
             </span>
                 <div class="content-data">
                     <span class="content-name">{{$profile->name}} {{$profile->surname}}</span>
@@ -87,4 +86,5 @@
 
         {{--            </div>--}}
         {{--        </div>--}}
-    @endsection
+    </x-slot>
+</x-ladmin>

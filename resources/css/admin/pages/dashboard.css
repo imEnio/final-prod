@@ -6,8 +6,14 @@
     border-radius: 20px 0 0;
 }
 
-.chat-clear-btn {
+.form-clear-btn {
     margin: auto;
+}
+
+.chat-clear-btn {
+    background: transparent;
+    border: 0;
+    color: var(--text-color);
 }
 
 @media screen and (min-width: 1600px) {

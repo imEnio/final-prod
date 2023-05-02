@@ -59,9 +59,7 @@ $(document).ready(function () {
                 message: message,
             },
             success: function (response) {
-                // $(".msg-box").html(message)
-                var span = $('<span>')
-                $(".msg-box").append(span);
+                //     $(".msg-box").append().scrollTop(9999);
             },
             error: function (response) {
 
@@ -71,5 +69,67 @@ $(document).ready(function () {
     Echo.channel('chat').listen('.send.message', (e) => {
         $(".msg-box").html(e.message)
     });
-    $(".msg-box").scrollTop(4000);
+    $(".msg-box").scrollTop(9999);
+
+    $(".chat-clear-btn").on("click", function () {
+        $.ajax({
+            type: "post",
+            url: "/admin/dashboard/chat-clear",
+
+            success: function (result) {
+                // $(".msg-box").reload()
+            }
+        })
+    })
+
+    $('.msg-box').on('scroll', function () {
+        if ($(this).scrollTop() === 0) {
+            let countChild = $(".msg-box").find(".msg-text-box").length
+            let page = countChild/20+1
+            console.log(page)
+            $.ajax({
+                type: "get",
+                url: "/admin/messages?page="+page,
+
+                success: function (response){
+                    for (let i in response){
+                        let divBox = document.createElement("div")
+                        let spanImg = document.createElement("span")
+                        let img = document.createElement('img')
+
+                        img.src=(response[i].user.avatar)? "https://pworld/storage/"+ response[i].user.avatar: "/assets/debug/img/testava.png"
+                        img.alt = "404 Not Found"
+                        img.classList.add("avatar-img")
+                        spanImg.classList.add("circle-image")
+                        spanImg.classList.add("chat-avatar")
+                        spanImg.appendChild(img)
+
+                        let divBlock = document.createElement("div")
+                        divBlock.className = "msg-text-block"
+
+                        let spanFrom = document.createElement("span")
+                        spanFrom.className = "msg-from"
+                        spanFrom.textContent = "От: "+response[i].user.name
+
+                        let spanText = document.createElement("span")
+                        spanText.className = "msg-text"
+                        spanText.textContent = response[i].message
+
+                        divBlock.appendChild(spanFrom)
+                        divBlock.appendChild(spanText)
+
+                        divBox.className = "msg-text-box"
+                        divBox.appendChild(spanImg)
+                        divBox.appendChild(divBlock)
+
+                        $(".msg-box").prepend(divBox)
+                    }
+                    console.log($(response[0]).scrollTop)
+                    $(response[0]).scrollTop
+                    // scrollTo(0, response[0])
+                    // response[0].scrollTo()
+                }
+            })
+        }
+    })
 })

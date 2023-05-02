@@ -110,7 +110,7 @@
                     <div class="msg-box">
                         @foreach($msg as $text)
 
-                            <div class="msg-text-box">
+                            <div class="msg-text-box @if(\Illuminate\Support\Facades\Auth::user()->id) my-message @endif">
                                 <span class="circle-image chat-avatar">
                                     <img
                                         src="@if($text->user->avatar) {{url('storage/' .$text->user->avatar)}} @else /assets/debug/img/testava.png @endif"

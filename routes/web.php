@@ -50,9 +50,17 @@ Route::group(['middleware' => ['auth']], function () {
     )->name("logout");
 
     Route::prefix('admin')->middleware([])->group(function () {
-        Route::get('/dashboard', [\App\Http\Controllers\admin\DashboardController::class, 'index']
-        )->name('dashboard');
-        Route::post('/send-message', [\App\Http\Controllers\admin\MessagesController::class, 'send']);
+        Route::controller(\App\Http\Controllers\admin\DashboardController::class)->group(function () {
+            Route::get('/dashboard',  'index')->name('dashboard');
+            Route::post('/dashboard/chat-clear', 'delMsg')->name('clearChat');
+
+        });
+
+        Route::controller(\App\Http\Controllers\admin\MessagesController::class)->group(function (){
+            Route::post('/send-message', 'send');
+            Route::get('/messages', 'index');
+        });
+
 
         Route::controller(\App\Http\Controllers\admin\ProfileController::class)->group(function () {
             Route::get('/profile/{id?}', 'index')->name('profile');

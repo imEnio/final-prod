@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class MessagesController extends Controller
 {
+    const perPage = 20;
     public function send(Request $request)
     {
         $user = Auth::user();
@@ -23,5 +24,11 @@ class MessagesController extends Controller
         event(new MessagesSend($text));
 
         return true;
+    }
+
+    public function index(Request $request){
+        $page = $request->page??1;
+        $msg = Message::with('user')->limit(self::perPage)->offset(($page-1)*self::perPage)->latest()->get();
+        return response()->json($msg);
     }
 }
